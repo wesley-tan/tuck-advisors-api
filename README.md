@@ -7,7 +7,7 @@ This API provides access to AI-generated analysis of potential acquisitions and 
 1. Install dependencies:
 
    ```bash
-   pip install fastapi uvicorn
+   pip install fastapi uvicorn sqlalchemy python-dotenv
    ```
 
 2. Run server:
@@ -20,27 +20,23 @@ The API will be available at http://localhost:8000 with two endpoints:
 - GET /analysis - Returns the current markdown
 - POST /analysis - Updates the markdown with new content
 
-# State file name in .env file
+3. State file name in .env file
 
+Replace with the path to the JSON file containing the analysis data.
+Right now the default is for preppy.json, but you can change it to any other JSON file that contains the analysis data.
+
+```
 ANALYSIS_DB_PATH=analysis.db
-# Replace with the path to the JSON file containing the analysis data
-# e.g. ANALYSIS_DATA_JSON=config.json 
-ANALYSIS_DATA_JSON=preppy.json
+ANALYSIS_DATA_JSON=<INSERT PATH TO JSON FILE>
+```
 
-Right now the default is for preppy.json, but you can change it to any other JSON file that contains the analysis data. 
-
-## Testing
+## Testing and Commands
 
 You can test the API using curl:
 
-### Basic GET request
+### GET request
+
 curl http://localhost:8000/analysis
-
-### Pretty print the JSON response
-curl http://localhost:8000/analysis | json_pp
-
-### With headers displayed
-curl -i http://localhost:8000/analysis
 
 ### POST request
 
@@ -60,6 +56,10 @@ curl -X POST http://localhost:8000/analysis \
 
 where `<INSERT YOUR NEW INSIGHT HERE>` is the new insight you want to add to the analysis.
 
+```
 curl -X POST http://localhost:8000/analysis \
   -H "Content-Type: application/json" \
   -d '{"new_content": <INSERT YOUR NEW INSIGHT HERE>}'
+```
+
+The current solution already implements a persistent storage method using SQLite through both raw SQLite3 connections and SQLAlchemy ORM, which is a good choice for this use case.
