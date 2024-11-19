@@ -42,6 +42,10 @@ ANALYSIS_DB_PATH=analysis.db
 ANALYSIS_DATA_JSON=<INSERT PATH TO JSON FILE>
 ```
 
+### Demo Video
+
+Watch a demonstration of the user journey in this [video walkthrough](https://www.loom.com/share/e46a715245d74ee6ab15a1119e302b50?sid=693b6517-3d73-447c-9f29-d00eb1a5464e).
+
 ## Testing and Commands
 
 You can test the API using curl:
