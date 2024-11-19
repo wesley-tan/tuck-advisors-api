@@ -7,7 +7,7 @@ This API provides access to AI-generated analysis of potential acquisitions and 
 1. Install dependencies:
 
    ```bash
-   pip install fastapi uvicorn sqlalchemy python-dotenv
+   pip install fastapi uvicorn sqlalchemy python-dotenv pytest httpx pydantic
    ```
 
 2. Run server:
@@ -82,3 +82,23 @@ curl -X POST http://localhost:8000/analysis \
 ```
 
 The current solution already implements a persistent storage method using SQLite through raw SQLite3 connections. 
+
+## Testing
+
+1. Install test dependencies:
+   ```bash
+   pip install pytest httpx
+   ```
+
+2. Create a test_main.py file in your project root
+3. Run tests:
+   ```bash
+   pytest test_main.py -v
+   ```
+
+The tests cover:
+- Successful GET/POST operations
+- Input validation
+- Database error handling
+- File processing errors
+- Missing required fields
