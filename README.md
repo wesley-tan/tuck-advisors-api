@@ -24,9 +24,10 @@ The API will be available at http://localhost:8000 with two endpoints:
 
 You want to add the .json file to the root directory of the project with the data from the Tuck Advisors GPT-4o analysis.
 
-Take the GPT Response and put it in the .json file. You can create a new .json file or replace the existing one.
+Take the GPT Response and put it in the .json file. You can create a new .json file or replace the existing one. 
 
-GET /analysis response:
+GPT Response:
+
 ![GPT Response](ss1.png)
 
 Example .json file:
